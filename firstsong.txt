@@ -5,36 +5,50 @@ define :main do
   play_pattern_timed [:a4],[4]
   play_pattern_timed [:b4,:c5,:b4,:c5,:d5,:c5],[0.5,1,0.5,1,0.5,0.5]
   play_pattern_timed [:a4],[4]
+  
   play_pattern_timed [:b4,:c5,:d5,:e5,:b4,:c5],[0.5,1,0.5,1,0.5,0.5]
   play_pattern_timed [:b4,:c5,:d5,:e5,:b4,:c5],[0.5,1,0.5,1,0.5,0.5]
   play_pattern_timed [:a4],[4]
-  play_pattern_timed [:b4,:c5,:b4,:c5,:d5,:c5],[0.5,1,0.5,1,0.5,0.5]
+  play_pattern_timed [:b4,:c5,:b4,:c5,:b4,:c5],[0.5,1,0.5,1,0.5,0.5]
   play_pattern_timed [:a4],[4]
   
-  play_pattern_timed [:b4,:c5,:b4,:c5,:d5,:c5],[0.5,1,0.5,1,0.5,0.5]
+  ##| play_pattern_timed [:b4,:c5,:b4,:c5,:d5,:c5],[0.5,1,0.5,1,0.5,0.5]
   ##| play_pattern_timed [:a4],[4]
 end
 
 define :baseline do
+  use_synth_defaults amp:1
+  use_synth :blade
+  play_pattern_timed [:g2,:b2,:c3,:b2,:g2,:b2,:c3,:b2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:g2,:f2,:e2,:f2,:g2,:f2,:e2,:f2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:g2,:b2,:c3,:b2,:g2,:b2,:c3,:b2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:g2,:f2,:e2,:f2,:g2,:f2,:e2,:f2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
   
   
-  define :beatpoint do
-    sample :drum_bass_soft
-    ##| slee
-    ##| sample :drum_cymbal_closed
-    sleep 4
+end
+
+in_thread do
+  loop do
+    baseline
   end
-  
-  in_thread do
-    loop do
-      beatpoint
-    end
+end
+
+define :beatpoint do
+  sample :drum_bass_soft
+  ##| slee
+  ##| sample :drum_cymbal_closed
+  sleep 4
+end
+
+in_thread do
+  loop do
+    beatpoint
   end
-  
-  in_thread do
-    loop do
-      main
-    end
+end
+
+in_thread do
+  loop do
+    main
   end
-  
-  
+end
+
