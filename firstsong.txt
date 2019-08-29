@@ -1,4 +1,4 @@
-use_bpm 100
+use_bpm 120
 define :main do
   use_synth :beep
   play_pattern_timed [:b4,:c5,:b4,:c5,:b4,:c5],[0.5,1,0.5,1,0.5,0.5]
@@ -8,24 +8,127 @@ define :main do
   
   play_pattern_timed [:b4,:c5,:d5,:e5,:b4,:c5],[0.5,1,0.5,1,0.5,0.5]
   play_pattern_timed [:b4,:c5,:d5,:e5,:b4,:c5],[0.5,1,0.5,1,0.5,0.5]
+  play_pattern_timed [:b4,:c5,:b4,:c5,:d5,:e5],[0.5,1,0.5,1,0.5,0.5]
   play_pattern_timed [:a4],[4]
-  play_pattern_timed [:b4,:c5,:b4,:c5,:b4,:c5],[0.5,1,0.5,1,0.5,0.5]
+  
+  sleep 1.5
+  play_pattern_timed [:g3,:a3,:c4,:d4,:e4], [0.5,0.5,0.5,0.5,0.5]
+  sleep 4
+  sleep 1.5
+  play_pattern_timed [:e4,:d4,:c4,:d4,:e4], [0.5,0.5,0.5,0.5,0.5]
+  sleep 8
+  
+  play_pattern_timed [:d5,:e5,:d5,:e5,:d5,:c5],[0.5,1,0.5,1,0.5,0.5]
   play_pattern_timed [:a4],[4]
+  play_pattern_timed [:d5,:e5,:g5,:e5,:d5,:c5],[0.5,1,0.5,1,0.5,0.5]
+  play_pattern_timed [:c5],[4]
+  
+  sleep 2.5
+  play_pattern_timed [:c5,:d5,:c5],[0.5,0.5,0.5]
+  play_pattern_timed [:g5,:e5] , [2,2]
+  play_pattern_timed [:g5,:f5,:e5,:d5,:c5,:d5,:c5] ,[0.5,0.5,0.5,1,0.5,0.5,0.5]
+  play_pattern_timed [:g5,:e5] , [2,2]
+  play_pattern_timed [:g5,:a5,:c5,:d5,:c5,:c5] ,[0.5,0.5,0.5,1,0.5,1]
+  
+  sleep 4
   
   ##| play_pattern_timed [:b4,:c5,:b4,:c5,:d5,:c5],[0.5,1,0.5,1,0.5,0.5]
   ##| play_pattern_timed [:a4],[4]
 end
 
+define :jianzhouchord do
+  ##| use_synth_defaults attach:0.1,release:7,amp:2
+  ##| play_chord [:c5,:e5,:g5]
+  ##| sleep 8
+  ##| play_chord [:a5,:c5,:f5]
+  ##| sleep 4
+  use_synth_defaults attach:0.1,release:6,amp:2
+  play_chord [:e5,:f5,:g5,:b5]
+  sleep 8
+  play_chord [:d5,:f5,:a5,:c4]
+  sleep 4
+end
+
+define :hi_hat do
+  sample :drum_cymbal_closed
+  sleep 0.5
+end
+
+define :snaredrum do
+  sleep 1
+  sample :drum_snare_hard
+  sleep 1
+end
+
+
+
 define :baseline do
   use_synth_defaults amp:1
   use_synth :blade
-  play_pattern_timed [:g2,:b2,:c3,:b2,:g2,:b2,:c3,:b2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
-  play_pattern_timed [:g2,:f2,:e2,:f2,:g2,:f2,:e2,:f2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
-  play_pattern_timed [:g2,:b2,:c3,:b2,:g2,:b2,:c3,:b2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
-  play_pattern_timed [:g2,:f2,:e2,:f2,:g2,:f2,:e2,:f2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:g2,:g2,:g2,:g2,:f2,:f2,:f2,:f2],[1,1,1,1,1,1,1,1]
+  play_pattern_timed [:g2,:g2,:g2,:g2,:f2,:f2,:f2,:f2],[1,1,1,1,1,1,1,1]
   
   
+  play_pattern_timed [:g2,:g2,:g2,:g2,:a2,:a2,:a2,:a2],[1,1,1,1,1,1,1,1]
+  play_pattern_timed [:g2,:g2,:g2,:g2,:f2,:f2,:f2,:f2],[1,1,1,1,1,1,1,1]
+  
+  sleep 20
+  ##| play_pattern_timed [:e2,:e2,:e2,:e2,:g2,:g2,:g2,:g2],[1,1,1,1,1,1,1,1]
+  ##| play_pattern_timed [:e2,:e2,:e2,:e2,:c2,:c2,:c2,:c2],[1,1,1,1,1,1,1,1]
+  ##| play_pattern_timed [:g2,:f2,:e2,:f2,:g2,:f2,:e2,:f2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  ##| play_pattern_timed [:g2,:b2,:c3,:b2,:g2,:b2,:c3,:b2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  ##| play_pattern_timed [:g2,:f2,:e2,:f2,:g2,:f2,:e2,:f2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  ##| play_pattern_timed [:a2,:c2,:e2,:g2],[0.5,0.5,0.5,2.5]
+  ##| play_pattern_timed [:e2,:f2,:g2,:b2],[0.5,0.5,0.5,2.5]
+  
+  ##| play_pattern_timed [:e2,:g2,:b2,:c3],[0.5,0.5,0.5,2.5]
+  ##| play_pattern_timed [:e2,:g2,:b2,:c3],[0.5,0.5,0.5,2.5]
+  
+  ##| play_pattern_timed [:f2,:f2,:g2,:a2,:b2,:c3],[1,0.5,0.5,0.5,0.5,0.5,1]
+  ##| play_pattern_timed [:a2,:a2,:b2,:c3,:b2,:a2,:e2],[1,0.5,0.5,0.5,0.5,0.5,0.5]
+  ##| play_pattern_timed [:f2,:f2,:g2,:a2,:b2,:c3],[1,0.5,0.5,0.5,0.5,0.5,1]
+  
+  ##| play_pattern_timed [:g2,:b2,:c3,:d3,:g2,:b2,:c3,:d3],[0.5,0.5,0.5,0.5,0.5,0.5,0.5, 0.5]
+  play_pattern_timed [:g2,:b2,:a2,:b2],[0.5,1,0.5,2]
+  play_pattern_timed [:g2,:b2,:a2,:b2],[0.5,1,0.5,2]
+  play_pattern_timed [:b2,:c3,:b2,:c3],[0.5,1,0.5,2]
+  play_pattern_timed [:b2,:c3,:b2,:c3],[0.5,1,0.5,2]
+  sleep 4
+  
+  play_pattern_timed [:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2],[0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25]
+  ##| play_pattern_timed [:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2],[0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25]
+  play_pattern_timed [:b2,:c3,:b2,:c3,:b2,:c3,:b2,:c3,:b2,:c3,:b2,:c3,:d3,:c3,:b2,:c3],[0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25]
+  play_pattern_timed [:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2],[0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25]
+  ##| play_pattern_timed [:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2,:g2,:b2],[0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25]
+  play_pattern_timed [:b2,:c3,:b2,:c3,:b2,:c3,:b2,:c3,:b2,:c3,:b2,:c3,:d3,:c3,:b2,:c3],[0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25,0.25]
+  
+  
+  ##| play_pattern_timed [:g2,:b2,:c3,:b2,:g2,:b2,:c3,:b2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  ##| play_pattern_timed [:e3,:e3,:e3,:e3,:a2,:a2,:a2,:a2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  ##| play_pattern_timed [:g2,:g2,:g2,:g2,:c3,:c3,:c3,:c3],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  ##| play_pattern_timed [:g2,:g2,:g2,:g2,:c3,:c3,:c3,:c3],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  ##| play_pattern_timed [:g2,:f2,:g2,:c3,:g2,:f2,:g2,:c3],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  ##| play_pattern_timed [:g2,:f2,:e2,:f2,:g2,:f2,:e2,:f2],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
 end
+
+in_thread delay:36 do
+  1.times do
+    jianzhouchord
+  end
+end
+
+in_thread delay:52 do
+  loop do
+    hi_hat
+  end
+end
+
+in_thread delay:52 do
+  loop do
+    snaredrum
+  end
+end
+
 
 in_thread do
   loop do
