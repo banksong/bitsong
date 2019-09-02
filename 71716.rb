@@ -1,5 +1,5 @@
 # Welcome to Sonic Pi v2.10
-use_bpm 110
+use_bpm 125
 define :drum do
   sample :drum_bass_soft,amp:2,attack:0.01,release:0.1
   sleep 1
@@ -173,11 +173,21 @@ define :frontend do
   sleep 2.5
   play_pattern_timed [:c5,:e5,:c5],[0.5,0.5,0.5]
   play_pattern_timed [:d5],[8]
+  
+  loop do
+    sleep 1.5
+    play_pattern_timed [:g3,:a3,:c4,:d4,:e4], [0.5,0.5,0.5,0.5,0.5]
+    sleep 4
+    sleep 1.5
+    play_pattern_timed [:e4,:d4,:c4,:d4,:e4], [0.5,0.5,0.5,0.5,0.5]
+    #56123 32123, 56123, 34345, 32123,34345
+    sleep 4
+  end
 end
 
 define :gitargaochao do
-  with_fx :reverb,mix:0.2,room:0.3 do
-    use_synth_defaults amp:0.7
+  with_fx :reverb,mix:0.2,room:0.3,amp:0.5 do
+    use_synth_defaults amp:0.5
     use_synth :supersaw
     play_pattern_timed [:e4,:c4,:e4,:c4,:e4,:c4,:e4,:c4],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
     play_pattern_timed [:e4,:c4,:e4,:c4,:e4,:c4,:e4,:c4],[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
@@ -187,7 +197,7 @@ define :gitargaochao do
 end
 
 in_thread delay:96 do
-  2.times do
+  loop do
     gitargaochao
   end
 end
@@ -235,13 +245,14 @@ end
 ##|   end
 ##| end
 
+##| in_thread
 
 in_thread delay:64 do
   7.times do
     jianzhoudrum
   end
-  sleep 8
-  18.times do
+  sleep 4
+  loop do
     jianzhoudrum
   end
 end

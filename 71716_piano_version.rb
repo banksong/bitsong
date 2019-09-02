@@ -59,6 +59,11 @@ define :baseline2 do
   
   play_pattern_timed [:f2,:f2,:f2,:f2,:f2,:f2,:f2,:f2], [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5], amp:0.8,attack:0.01,release:0.3
   play_pattern_timed [:f2,:f2,:f2,:f2,:f2,:f2,:f2,:f2], [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5], amp:0.8,attack:0.01,release:0.3
+  
+  play_pattern_timed [:c3,:c3,:c3,:c3,:c3,:c3,:c3,:c3] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:c3,:c3,:c3,:c3,:c3,:c3,:c3,:c3] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:g2,:g2,:g2,:g2,:g2,:g2,:g2,:g2] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:g2,:g2,:g2,:g2,:g2,:g2,:g2,:g2] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
   ##| sleep 2
   
   ##| use_synth :dsaw
@@ -199,6 +204,20 @@ define :gitargaochao do
   end
 end
 
+
+define :pianobaseline do
+  use_synth :piano
+  play_pattern_timed [:c3,:c3,:c3,:c3,:c3,:c3,:c3,:c3] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:b2,:b2,:b2,:b2,:f3,:f3,:f3,:f3] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:c3,:c3,:c3,:c3,:c3,:c3,:c3,:c3] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:b2,:b2,:b2,:b2,:d3,:d3,:d3,:d3] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  
+  play_pattern_timed [:c3,:c3,:c3,:c3,:c3,:c3,:c3,:c3] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:c3,:c3,:c3,:c3,:c3,:c3,:c3,:c3] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:g2,:g2,:g2,:g2,:g2,:g2,:g2,:g2] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+  play_pattern_timed [:g2,:g2,:g2,:g2,:g2,:g2,:g2,:g2] ,[0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5]
+end
+
 define :gaochaochord do
   with_fx :reverb,mix:0.2,room:0.3 do
     use_synth_defaults amp:2,attack:0.02,release:3
@@ -281,8 +300,14 @@ in_thread do
     baseline
   end
   sleep 8
-  11.times do
-    baseline2
+  24.times do
+    in_thread do
+      baseline2
+    end
+    
+    in_thread do
+      pianobaseline
+    end
   end
 end
 
